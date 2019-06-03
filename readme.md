@@ -8,6 +8,7 @@ Sistema de Cadastro de Clientes com tela de visualização, edição e exclusão
             PHP 7>=
             MySQL
             Composer
+            Bootstrap 4
 
 ## Procedimento de Instalação (Para Linux)
 

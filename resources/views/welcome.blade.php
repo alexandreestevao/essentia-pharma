@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Essential Pharma</title>
+        <title>Essentia Pharma</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -81,12 +81,12 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Essential
+                    Essentia Pharma
                 </div>
 
                 <div class="links">
-                    <a href="{{ route('client.index') }}">Lista de Clientes</a>
-                    <a href="https://github.com/alexandreestevao/pharma">GitHub do Projeto</a>
+                    <a href="{{ route('client.index') }}">Clientes</a>
+                    <a href="https://github.com/alexandreestevao/essentia-pharma">GitHub do Projeto</a>
                 </div>
             </div>
         </div>

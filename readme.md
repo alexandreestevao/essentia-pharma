@@ -5,9 +5,13 @@ Sistema de Cadastro de Clientes com tela de visualização, edição e exclusão
 
 ## Laravel 5.8 Server / Requisitos
 
- PHP 7.2.17
- MySQL
- Composer
+ [PHP 7 >=]https://www.php.net/downloads.php
+ [MySQL]https://www.mysql.com/downloads/
+ [Composer]https://getcomposer.org/
+
+            PHP 7 >=
+            MySQL
+            Composer
 
 ## Procedimento de Instalação (Para Linux)
 
@@ -29,7 +33,7 @@ $ composer install
 
 Após descompactar e atualizar o projeto com suas dependências, abra o mesmo na IDE de sua preferência.
 
-## Configuração do banco de dados (MySQL)
+## Banco de dados (MySQL)
 
 Abra o banco de dados MySQL e crie o database (essentia).
 

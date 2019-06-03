@@ -49,14 +49,18 @@ Na raiz do projeto, configure os arquivos:
             DB_USERNAME=root
             DB_PASSWORD=
 
+Obs.: Se necessário, duplique o arquivo '.env.example' para criar o seu arquivo '.env'.
+
 config/database.php
 
-            driver' => 'mysql
-            host' => env('DB_HOST', '127.0.0.1')
-            port' => env('DB_PORT', '3306')
-            database' => env('DB_DATABASE', 'essentia')
-            username' => env('DB_USERNAME', 'root')
-            password' => env('DB_PASSWORD', '')
+            'driver' => 'mysql'
+            'host' => env('DB_HOST', '127.0.0.1')',
+            'port' => env('DB_PORT', '3306')',
+            'database' => env('DB_DATABASE', 'essentia')',
+            'username' => env('DB_USERNAME', 'root')',
+            'password' => env('DB_PASSWORD', '')',
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
 
 Execute o comando para a geração da tabela no banco de dados:
 

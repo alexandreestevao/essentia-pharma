@@ -13,9 +13,9 @@ class ClientsController extends Controller
      */
     public function index()
     {
-      $data = Client::latest()->paginate(5);
-      return view('index', compact('data'))
-              ->with('i', (request()->input('page', 1) - 1) * 5);
+        $data = Client::latest()->paginate(5);
+        return view('index', compact('data'))
+                ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -37,10 +37,11 @@ class ClientsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'      =>  'required',
-            'email'     =>  'required',
-            'phone'     =>  'required',
-            'image'     =>  'required|image|max:2048'
+            'first_name'    =>  'required',
+            'last_name'     =>  'required',
+            'email'         =>  'required',
+            'phone'         =>  'required',
+            'image'         =>  'required|image|max:2048'
         ]);
 
         $image = $request->file('image');
@@ -48,15 +49,16 @@ class ClientsController extends Controller
         $new_name = rand() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('images'), $new_name);
         $form_data = array(
-            'name'          =>   $request->name,
-            'email'         =>   $request->email,
-            'phone'         =>   $request->phone,
-            'image'         =>   $new_name
+            'first_name'       =>   $request->first_name,
+            'last_name'        =>   $request->last_name,
+            'email'            =>   $request->email,
+            'phone'            =>   $request->phone,
+            'image'            =>   $new_name
         );
 
         Client::create($form_data);
 
-        return redirect('client')->with('success', 'Dados adicionados com sucesso.');
+        return redirect('client')->with('success', 'Dados cadastrados com sucesso');
     }
 
     /**
@@ -67,8 +69,8 @@ class ClientsController extends Controller
      */
     public function show($id)
     {
-      $data = Client::findOrFail($id);
-      return view('view', compact('data'));        //
+        $data = Client::findOrFail($id);
+        return view('view', compact('data'));
     }
 
     /**
@@ -79,8 +81,8 @@ class ClientsController extends Controller
      */
     public function edit($id)
     {
-      $data = Client::findOrFail($id);
-      return view('edit', compact('data'));
+        $data = Client::findOrFail($id);
+        return view('edit', compact('data'));
     }
 
     /**
@@ -97,34 +99,36 @@ class ClientsController extends Controller
         if($image != '')
         {
             $request->validate([
-                'name'          =>  'required',
+                'first_name'    =>  'required',
+                'last_name'     =>  'required',
                 'email'         =>  'required',
                 'phone'         =>  'required',
                 'image'         =>  'image|max:2048'
             ]);
-
             $image_name = rand() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images'), $image_name);
         }
         else
         {
             $request->validate([
-              'name'          =>  'required',
-              'email'         =>  'required',
-              'phone'         =>  'required'
+                'first_name'    =>  'required',
+                'last_name'     =>  'required',
+                'email'         =>  'required',
+                'phone'         =>  'required'
             ]);
         }
 
         $form_data = array(
-            'name'            =>   $request->name,
-            'email'           =>   $request->email,
-            'email'           =>   $request->phone,
-            'image'           =>   $image_name
+            'first_name'    =>  $request->first_name,
+            'last_name'     =>  $request->last_name,
+            'email'         =>   $request->email,
+            'phone'         =>   $request->phone,
+            'image'         =>  $image_name
         );
 
         Client::whereId($id)->update($form_data);
+        return redirect('client')->with('success', 'Dados editados com sucesso');
 
-        return redirect('client')->with('success', 'Dados alterados com sucesso.');
     }
 
     /**
@@ -137,7 +141,6 @@ class ClientsController extends Controller
     {
         $data = Client::findOrFail($id);
         $data->delete();
-
-        return redirect('client')->with('success', 'Dados excluídos com sucesso.');
+        return redirect('client')->with('success', 'Dados excluídos com sucesso');
     }
 }

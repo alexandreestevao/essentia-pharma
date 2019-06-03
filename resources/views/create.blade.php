@@ -3,49 +3,101 @@
 @section('main')
 @if($errors->any())
 <div class="alert alert-danger">
- <ul>
-  @foreach($errors->all() as $error)
-  <li>{{ $error }}</li>
-  @endforeach
- </ul>
+	<ul>
+		@foreach($errors->all() as $error)
+		<li>{{ $error }}</li>
+		@endforeach
+	</ul>
 </div>
 @endif
 <div align="right">
- <a href="{{ route('crud.index') }}" class="btn btn-default">Back</a>
+	<a href="{{ route('client.index') }}" class="btn btn-default">Voltar</a>
 </div>
 
-<form method="post" action="{{ route('crud.store') }}" enctype="multipart/form-data">
+<form method="post" action="{{ route('client.store') }}" enctype="multipart/form-data">
 
- @csrf
- <div class="form-group">
-  <label class="col-md-4 text-right">Enter First Name</label>
-  <div class="col-md-8">
-   <input type="text" name="first_name" class="form-control input-lg" />
-  </div>
- </div>
- <br />
- <br />
- <br />
- <div class="form-group">
-  <label class="col-md-4 text-right">Enter Last Name</label>
-  <div class="col-md-8">
-   <input type="text" name="last_name" class="form-control input-lg" />
-  </div>
- </div>
- <br />
- <br />
- <br />
- <div class="form-group">
-  <label class="col-md-4 text-right">Select Profile Image</label>
-  <div class="col-md-8">
-   <input type="file" name="image" />
-  </div>
- </div>
- <br /><br /><br />
- <div class="form-group text-center">
-  <input type="submit" name="add" class="btn btn-primary input-lg" value="Add" />
- </div>
+	@csrf
+	  <div class="form-row">
+	    <div class="form-group col-md-6">
+	      <label for="first_name">Primeiro Nome</label>
+	      <input type="text" class="form-control" name="first_name" placeholder="Primeiro Nome">
+	    </div>
+	    <div class="form-group col-md-6">
+	      <label for="last_name">Segundo Nome</label>
+	      <input type="text" class="form-control" name="last_name" placeholder="Segundo Nome">
+	    </div>
+	  </div>
+		<div class="form-row">
+	    <div class="form-group col-md-6">
+	      <label for="email">E-mail</label>
+	      <input type="text" class="form-control" name="email" placeholder="E-mail">
+	    </div>
+	    <div class="form-group col-md-6">
+	      <label for="phone">Password</label>
+	      <input type="text" class="form-control" name="phone" placeholder="(99)99999999">
+	    </div>
+	  </div>
+		<div class="form-row">
+	    <div class="form-group col-md-6">
+	      <label for="image">Selecionar Imagem</label>
+	      <input type="file" name="image" />
+	    </div>
+	    <div class="form-group col-md-6">
+				<div align="right">
+					<input type="submit" name="add" class="btn btn-primary" value="Salvar" />
+				</div>
+	    </div>
+	  </div>
 
-</form>
+	</form>
+
+<!--
+	<div class="form-group">
+		<label class="col-md-4 text-right">Primeiro Nome</label>
+		<div class="col-md-8">
+			<input type="text" name="first_name" class="form-control input-lg" />
+		</div>
+	</div>
+	<br />
+	<br />
+	<br />
+	<div class="form-group">
+		<label class="col-md-4 text-right">Segundo Nome</label>
+		<div class="col-md-8">
+			<input type="text" name="last_name" class="form-control input-lg" />
+		</div>
+	</div>
+	<br />
+	<br />
+	<br />
+	<div class="form-group">
+		<label class="col-md-4 text-right">E-mail</label>
+		<div class="col-md-8">
+			<input type="text" name="email" class="form-control input-lg" />
+		</div>
+	</div>
+	<br />
+	<br />
+	<br />
+	<div class="form-group">
+		<label class="col-md-4 text-right">Telefone</label>
+		<div class="col-md-8">
+			<input type="text" name="phone" class="form-control input-lg" />
+		</div>
+	</div>
+	<br />
+	<br />
+	<br />
+	<div class="form-group">
+		<label class="col-md-4 text-right">Selecionar Imagem</label>
+		<div class="col-md-8">
+			<input type="file" name="image" />
+		</div>
+	</div>
+
+	<div align="right">
+		<input type="submit" name="add" class="btn btn-primary" value="Salvar" />
+	</div>
+</form> -->
 
 @endsection

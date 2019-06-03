@@ -2,25 +2,45 @@
 
 @section('main')
 
-<table class="table table-bordered table-striped">
- <tr>
-  <th width="10%">Imagem</th>
-  <th width="35%">Nome</th>
-  <th width="35%">Email</th>
-  <th width="35%">Telefone</th>
-  <th width="30%">Ações</th>
- </tr>
- @foreach($data as $row)
-  <tr>
-   <td><img src="{{ URL::to('/') }}/images/{{ $row->image }}" class="img-thumbnail" width="75" /></td>
-   <td>{{ $row->name }}</td>
-   <td>{{ $row->email }}</td>
-   <td>{{ $row->phone }}</td>
-   <td>
+<div align="right">
+	<a href="{{ route('client.create') }}" class="btn btn-success">Adicionar</a>
+</div>
+<br />
+@if ($message = Session::get('success'))
+<div class="alert alert-success">
+	<p>{{ $message }}</p>
+</div>
+@endif
 
-   </td>
-  </tr>
- @endforeach
+
+<table class="table table-bordered table-striped">
+	<tr>
+		<th width="10%">Foto</th>
+		<th width="15%">Primeiro Nome</th>
+		<th width="15%">Segundo Nome</th>
+		<th width="25%">E-mail</th>
+		<th width="10%">Telefone</th>
+		<th width="25%">Ações</th>
+	</tr>
+	@foreach($data as $row)
+		<tr>
+			<td><img src="{{ URL::to('/') }}/images/{{ $row->image }}" class="img-thumbnail" width="75" /></td>
+			<td>{{ $row->first_name }}</td>
+			<td>{{ $row->last_name }}</td>
+			<td>{{ $row->email }}</td>
+			<td>{{ $row->phone }}</td>
+			<td>
+
+				<form action="{{ route('client.destroy', $row->id) }}" method="post">
+					<a href="{{ route('client.show', $row->id) }}" class="btn btn-primary">Visualizar</a>
+					<a href="{{ route('client.edit', $row->id) }}" class="btn btn-warning">Editar</a>
+					@csrf
+					@method('DELETE')
+					<button type="submit" class="btn btn-danger">Excluir</button>
+				</form>
+			</td>
+		</tr>
+	@endforeach
 </table>
 {!! $data->links() !!}
 @endsection

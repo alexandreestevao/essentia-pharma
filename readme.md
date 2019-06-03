@@ -5,11 +5,7 @@ Sistema de Cadastro de Clientes com tela de visualização, edição e exclusão
 
 ## Laravel 5.8 Server / Requisitos
 
- [PHP 7 >=]https://www.php.net/downloads.php
- [MySQL]https://www.mysql.com/downloads/
- [Composer]https://getcomposer.org/
-
-            PHP 7 >=
+            PHP 7>=
             MySQL
             Composer
 

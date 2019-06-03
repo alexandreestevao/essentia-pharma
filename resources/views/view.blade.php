@@ -4,7 +4,7 @@
 
 <div class="jumbotron text-center">
 	<div align="right">
-		<a href="{{ route('client.index') }}" class="btn btn-default">Voltar</a>
+		<a href="{{ route('client.index') }}" class="btn btn-secondary">Voltar</a>
 	</div>
 	<br />
 	<img src="{{ URL::to('/') }}/images/{{ $data->image }}" class="img-thumbnail" />

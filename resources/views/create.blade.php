@@ -11,7 +11,7 @@
 </div>
 @endif
 <div align="right">
-	<a href="{{ route('client.index') }}" class="btn btn-default">Voltar</a>
+	<a href="{{ route('client.index') }}" class="btn btn-secondary">Voltar</a>
 </div>
 
 <form method="post" action="{{ route('client.store') }}" enctype="multipart/form-data">
@@ -33,7 +33,7 @@
 	      <input type="text" class="form-control" name="email" placeholder="E-mail">
 	    </div>
 	    <div class="form-group col-md-6">
-	      <label for="phone">Password</label>
+	      <label for="phone">Telefone</label>
 	      <input type="text" class="form-control" name="phone" placeholder="(99)99999999">
 	    </div>
 	  </div>
@@ -50,54 +50,4 @@
 	  </div>
 
 	</form>
-
-<!--
-	<div class="form-group">
-		<label class="col-md-4 text-right">Primeiro Nome</label>
-		<div class="col-md-8">
-			<input type="text" name="first_name" class="form-control input-lg" />
-		</div>
-	</div>
-	<br />
-	<br />
-	<br />
-	<div class="form-group">
-		<label class="col-md-4 text-right">Segundo Nome</label>
-		<div class="col-md-8">
-			<input type="text" name="last_name" class="form-control input-lg" />
-		</div>
-	</div>
-	<br />
-	<br />
-	<br />
-	<div class="form-group">
-		<label class="col-md-4 text-right">E-mail</label>
-		<div class="col-md-8">
-			<input type="text" name="email" class="form-control input-lg" />
-		</div>
-	</div>
-	<br />
-	<br />
-	<br />
-	<div class="form-group">
-		<label class="col-md-4 text-right">Telefone</label>
-		<div class="col-md-8">
-			<input type="text" name="phone" class="form-control input-lg" />
-		</div>
-	</div>
-	<br />
-	<br />
-	<br />
-	<div class="form-group">
-		<label class="col-md-4 text-right">Selecionar Imagem</label>
-		<div class="col-md-8">
-			<input type="file" name="image" />
-		</div>
-	</div>
-
-	<div align="right">
-		<input type="submit" name="add" class="btn btn-primary" value="Salvar" />
-	</div>
-</form> -->
-
 @endsection

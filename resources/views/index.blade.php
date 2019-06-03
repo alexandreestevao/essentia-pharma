@@ -8,10 +8,9 @@
 <br />
 @if ($message = Session::get('success'))
 <div class="alert alert-success">
-	<p>{{ $message }}</p>
+	{{ $message }}
 </div>
 @endif
-
 
 <table class="table table-bordered table-striped">
 	<tr>
@@ -32,11 +31,11 @@
 			<td>
 
 				<form action="{{ route('client.destroy', $row->id) }}" method="post">
-					<a href="{{ route('client.show', $row->id) }}" class="btn btn-primary">Visualizar</a>
-					<a href="{{ route('client.edit', $row->id) }}" class="btn btn-warning">Editar</a>
+					<a href="{{ route('client.show', $row->id) }}" class="btn btn-primary btn-sm">Visualizar</a>
+					<a href="{{ route('client.edit', $row->id) }}" class="btn btn-warning btn-sm">Editar</a>
 					@csrf
 					@method('DELETE')
-					<button type="submit" class="btn btn-danger">Excluir</button>
+					<button type="submit" class="btn btn-danger btn-sm">Excluir</button>
 				</form>
 			</td>
 		</tr>
